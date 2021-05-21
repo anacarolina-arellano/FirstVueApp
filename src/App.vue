@@ -5,20 +5,9 @@
 <template>
 
     <main class="grid-frame vue-main-rootcomponent">
-        <pg-header></pg-header>
-        <pg-sidebar></pg-sidebar>
-
+        <myHeader></myHeader>
         <!-- TODO:have this dynamically change and generate appropriate info for different sections -->
         <router-view></router-view>
-
-        <div class="dialog-container">
-            <!-- dialogs instanciate within this container -->
-        </div>
-        <div class="loader">
-            <svg viewBox="0 0 32 32" width="32" height="32">
-                <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-            </svg>
-        </div>
     </main>
 
 </template>
@@ -26,7 +15,7 @@
     // typical Vue component controller defined and registered here
     import Controller from '@/mixins/controller'
 
-    import pgHeader  from '@/components/Header.vue'
+    import myHeader  from '@/components/Header.vue'
     import pgNavbar from '@/components/Navbar.vue'
     import pgSidebar from '@/components/Sidebar.vue'
 
@@ -46,7 +35,7 @@
     }
 
     // export a definition for this view
-    export default new AppController('pgApp', { pgHeader, pgSidebar, pgNavbar });
+    export default new AppController('WarehouseApp', { myHeader, pgSidebar, pgNavbar });
 
 </script>
 <style>
@@ -75,7 +64,7 @@
     }
 
     body {
-        background-color: rgb(194, 193, 193);
+        background-color: white;
         font-family: 'Maven Pro', Helvetica, sans-serif;
         overflow: hidden;
     }
@@ -102,6 +91,7 @@
     /* GRID FRAME/CONTAINER (PARENT) */
     .grid-frame {
         display: grid;
+        align-items: center;
         grid-template-columns: repeat(10, 1fr);
         grid-auto-rows: auto;
         grid-template-areas:
@@ -169,7 +159,7 @@
     /* FLEX CONTAINER (PARENT) */
     .flexbox {
         display: flex;
-        background-color: rgb(241, 244, 247);
+        background-color: white;
         height: 100%;
     }
 
@@ -180,7 +170,6 @@
 
     /* header */
     .header {
-        background: #D10034;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
@@ -188,9 +177,9 @@
     }
 
     .logo {
-        background-image:url("assets/vfs_logo.png");
+        background-image:url("./assets/mywh.png");
         background-size:100% 100%;
-        height: 120px;
+        height: 165px;
         width: 165px;
         margin-left: 1em;
         cursor: pointer;
@@ -290,22 +279,22 @@
 
     /* Heading Styles */
     h1 {
-        color: white;
+        color: black;
     }
 
     h2 {
-        color: white;
+        color: black;
         font-family: 'Roboto', Helvetica, sans-serif;
         margin: 3px 0px 3px 0px;
     }
 
     h3{
-        color: white;
+        color: black;
         font-family: 'Raleway', Helvetica, sans-serif;
     }
 
     h4{
-        color: white;
+        color: black;
         font-family: 'Raleway', Helvetica, sans-serif;
     }
 

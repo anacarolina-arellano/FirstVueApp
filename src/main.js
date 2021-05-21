@@ -5,7 +5,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 'use strict';
 
 import Vue from 'vue'
-
+import vuetify from '@/plugins/vuetify'
 //registering(globally) our router to our root #app
 import store from '@/store'
 
@@ -22,6 +22,7 @@ class MainApp {
         new Vue({
             router,
             store,
+            vuetify,
             components: { App },
             render: h => h( App ),
         }).$mount('#app');

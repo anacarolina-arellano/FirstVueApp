@@ -10,6 +10,8 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     <section class="home-container">
         <div class="home">
             <h2>Welcome to the {{ name }}</h2>
+            <h2>Please select a role: </h2>
+            <roles/>
         </div>
     </section>
 
@@ -17,6 +19,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 <script>
 
     import Controller from '@/mixins/controller'
+    import roles from '../components/ChooseRole'
 
     class HomeController extends Controller {
 
@@ -27,6 +30,9 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
             this.props = {
                 name: String,
             }
+            this.components ={
+                roles
+            }
         }
     }
 
@@ -36,28 +42,19 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 <style scoped>
     /* Local styles for this template */
     .home-container {
+        margin-top: 200px;
+        margin-left: auto;
+        margin-right: auto;
         display: inline-block;
         width: 100%;
     }
 
     .home {
-        margin:2vw;
-        border: 1px solid black;
-        background-color: lightgray;
+        margin-left: auto;
+        margin-right: auto;
         color: black;
         height: 78vh;
         width: 80vw;
     }
 
-    select, input, button {
-        font-size: 1.2em;
-        font-weight: 700;
-        height: 1.4em;
-    }
-
-    button {
-        padding: .5em;
-        margin: .25em;
-        padding-bottom: 1.5em;
-    }
 </style>

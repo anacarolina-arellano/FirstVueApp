@@ -16,6 +16,7 @@
   },
   "arch": "any",
   "devDependencies": {
+    "@nuxtjs/vuetify": "^1.11.3",
     "@vue/cli-plugin-babel": "^4.5.13",
     "@vue/cli-plugin-eslint": "^4.5.13",
     "@vue/cli-plugin-pwa": "^4.5.13",
