@@ -9,7 +9,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 
     <section class="home-container">
         <div class="home">
-            <h2>Welcome to your {{ name }}</h2>
+            <h2>Welcome to the {{ name }}</h2>
         </div>
     </section>
 
