@@ -1,13 +1,12 @@
 <template>
-  <div class="text-center">
+  <div class="text-center ">
     <v-btn
-      class="ma-2 myText"
+      class="ma-2 myText myBorder"
       outlined
       color="indigo"
+      min-width="210px"
     >
-      <li id="li-names" v-for="(item, index) in names" :key="index">
-        <router-link :to="{ name:item.name }">{{ item.name }}</router-link>
-      </li>
+      <router-link :to="{ name }">{{ name }}</router-link>
     </v-btn>
   </div>
 </template>
@@ -19,14 +18,10 @@
 
         constructor( name, subComponentList = []) {
             super( name, subComponentList )
-            this.vm = {
-                names:[
-                    { name: "Consumer" },
-                    { name: "Inventory Manager" },
-                    { name: "Sales" },
-                    { name: "Shipping Picker" },
-                ]
-            };
+            this.props = {
+              name: String
+            }
+            
         }
     }
 
@@ -38,4 +33,6 @@
 .myText{
   color:black;
 }
+
 </style>
+

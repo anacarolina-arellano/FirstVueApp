@@ -11,7 +11,10 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         <div class="home">
             <h2>Welcome to the {{ name }}</h2>
             <h2>Please select a role: </h2>
-            <roles/>
+            <roles name="Customer" class="roles"> </roles>
+            <roles name="Inventory Manager" class="roles"> </roles>
+            <roles name="Sales" class="roles"> </roles>
+            <roles name="Shipping Picker" class="roles"> </roles>
         </div>
     </section>
 
@@ -50,6 +53,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
     }
 
     .home {
+        text-align: center;
         margin-left: auto;
         margin-right: auto;
         color: black;
@@ -57,4 +61,8 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
         width: 80vw;
     }
 
+    .roles{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
 </style>
