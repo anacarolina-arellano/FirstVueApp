@@ -1,3 +1,6 @@
+import '@fortawesome/fontawesome-free/css/all.min.css'
+import 'bootstrap-css-only/css/bootstrap.min.css'
+import 'mdbvue/lib/css/mdb.min.css'
 /*
 VUE App's MAIN Component.
 Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.

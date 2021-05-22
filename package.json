@@ -5,17 +5,18 @@
   "scripts": {
     "serve": "vue-cli-service serve --port 4000",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "vue-cli-service serve --open"
   },
   "dependencies": {
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.12.1",
+    "mdbvue": "6.7.2",
     "register-service-worker": "^1.7.2",
     "vue": "^2.6.12",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"
   },
-  "arch": "any",
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.11.3",
     "@vue/cli-plugin-babel": "^4.5.13",
@@ -26,6 +27,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "lint-staged": "^9.4.3",
+    "vue-cli-plugin-mdb": "~2.1.0",
     "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
@@ -46,6 +48,7 @@
     "> 1%",
     "last 2 versions"
   ],
+  "arch": "any",
   "gitHooks": {
     "pre-commit": "lint-staged"
   },

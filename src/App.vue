@@ -174,13 +174,14 @@
         align-items: center;
         justify-content: space-between;
         box-shadow: 0 4px 5px -5px #222;
+        height: 100px;
     }
 
     .logo {
         background-image:url("./assets/mywh.png");
         background-size:100% 100%;
-        height: 165px;
-        width: 165px;
+        height: 130px;
+        width: 130px;
         margin-left: 1em;
         cursor: pointer;
     }
