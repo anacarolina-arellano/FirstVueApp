@@ -1,11 +1,18 @@
 <template>
-    <div class="active-pink-4 mb-3 my-bar">
-      <input class="form-control my-form" type="text" placeholder="Search" aria-label="Search"/>
-    </div>
+    <v-row>
+        <v-col cols="10">
+            <searchbar></searchbar> 
+        </v-col>
+        <v-col cols="2">
+            <cartButton></cartButton>
+        </v-col>
+    </v-row>
 </template>
 <script>
 
     import Controller from '@/mixins/controller'
+    import searchbar from '../components/Searchbar'
+    import cartButton from '../components/MyCartButton'
 
     class Customer extends Controller {
 
@@ -13,8 +20,9 @@
             super( name, subComponentList );
             this.vm = {
             }
-            this.props = {
-                name: String,
+            this.components = {
+                searchbar,
+                cartButton
             }
         }
     }
@@ -24,13 +32,4 @@
 </script>
 
 <style scoped>
-.my-bar{
-    margin-top: 200px;
-    margin-left: 100px;
-    margin-right: auto;
-    width: 100%;
-}
-.my-form{
-    width: 500%;
-}
 </style>

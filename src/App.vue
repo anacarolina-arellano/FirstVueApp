@@ -4,10 +4,12 @@
 -->
 <template>
 
-    <main class="grid-frame vue-main-rootcomponent">
+    <main class="vue-main-rootcomponent">
         <myHeader></myHeader>
-        <!-- TODO:have this dynamically change and generate appropriate info for different sections -->
-        <router-view></router-view>
+        <div class="content-wrapper">
+            <!-- TODO:have this dynamically change and generate appropriate info for different sections -->
+            <router-view></router-view>
+        </div>
     </main>
 
 </template>
@@ -320,5 +322,9 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
+    }
+
+    .content-wrapper{
+        padding: 160px 24px 24px;
     }
 </style>
