@@ -7,7 +7,7 @@
       min-width="210px"
     >
       <!-- <router-link :to="{  }">{{ name }}</router-link>-->
-      <router-link :to="{ name: 'Customer'}">{{name}}</router-link>
+      <router-link :to="{ name }">{{name}}</router-link>
     </v-btn>
   </div>
 </template>

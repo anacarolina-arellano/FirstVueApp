@@ -45,7 +45,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
 <style scoped>
     /* Local styles for this template */
     .home-container {
-        margin-top: 200px;
+        margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
         display: inline-block;
