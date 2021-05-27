@@ -1,28 +1,37 @@
 <template>
-
-    <section class="home-container">
-        <div class="home">
-            <h2>Welcome to the inventory manager</h2>
-        </div>
-    </section>
-
+  <section class="inventory-container">
+    <div class="sales-form">
+        <h2>Incoming Shipment Registration</h2>
+        <productInfo></productInfo>
+    </div>
+    
+  </section>
 </template>
 <script>
+    import Controller from "@/mixins/controller";
+    import productInfo from '../components/ProductInfo'
 
-    import Controller from '@/mixins/controller'
+class InventoryManager extends Controller {
+  constructor(name, subComponentList = []) {
+    super(name, subComponentList);
+    this.vm = {};
+    this.components = {
+        productInfo
+    };
+    
+  }
+}
+export default new InventoryManager('InventoryManager');
 
-    class InventoryManager extends Controller {
-
-        constructor( name, subComponentList = []) {
-            super( name, subComponentList );
-            this.vm = {
-            }
-            this.components ={
-                
-            }
-        }
-    }
-
-    export default new InventoryManager('InventoryManager');
 
 </script>
+<style scoped>
+    h2 {
+    text-align: center;
+    }
+    .inventory-container{
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
