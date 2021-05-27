@@ -7,8 +7,10 @@
             <v-col cols="2">
                 <cartButton></cartButton>
             </v-col>
-            
         </v-row>
+
+        <v-row class="my-filter">
+            <filterOption></filterOption></v-row>
         <v-row>
             <myCard nameProduct="Blue Dress"
                     price="50"
@@ -18,7 +20,21 @@
                     only a few left! "
                     imageName="dress.jpeg">
             </myCard>
-
+            <myCard nameProduct="Nike Shoes"
+                    price="70"
+                    category="Shoes"
+                    description="This pair of shoes is perfect for
+                    any occasion. They are super comfortable, you'll
+                    love them!"
+                    imageName="shoes.jpg">
+            </myCard>
+            <myCard nameProduct="White top"
+                    price="36"
+                    category="Tops"
+                    description="White top that is perfect for the summer,
+                    it is made of good materials and fits sizes S and M. "
+                    imageName="top.jpeg">
+            </myCard>
            
         </v-row>
         
@@ -31,6 +47,7 @@
     import searchbar from '../components/Searchbar'
     import cartButton from '../components/MyCartButton'
     import myCard from '../components/Card'
+    import filterOption from '../components/Filter'
 
     class Customer extends Controller {
 
@@ -41,7 +58,8 @@
             this.components = {
                 searchbar,
                 cartButton,
-                myCard 
+                myCard,
+                filterOption,
             }
         }
     }
@@ -51,4 +69,10 @@
 </script>
 
 <style scoped>
+.my-filter{
+    max-height: fit-content;
+    margin-bottom: 15px;
+    width: 80%;
+    margin-left: 5px;
+}
 </style>

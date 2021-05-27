@@ -1,7 +1,7 @@
 <template>
   <v-card
     :loading="loading"
-    class="mx-auto my-12"
+    class="mx-auto my-12 my-card"
     max-width="374"
   >
     <template slot="progress">
@@ -13,14 +13,14 @@
     </template>
 
     <v-img
-      class="my-img"
       height="250"
-      src="require('@/assets/' + imageName + '')"
+      v-bind:src="require(`../assets/${imageName}`)"
     ></v-img>
 
     <v-card-title>{{nameProduct}}</v-card-title>
 
-    <v-card-text>
+    <v-card-text class="my-text">
+      
       <v-row
         align="center"
         class="mx-0"
@@ -39,7 +39,7 @@
         </div>
       </v-row>
 
-      <div class="my-4 subtitle-1">
+      <div class="my-3 subtitle-1">
           {{category}}
       </div>
 
@@ -51,6 +51,7 @@
     <v-card-actions class="my-actions">
       <v-btn
         color="deep-purple lighten-2"
+        class="my-button"
         text
         @click="reserve"
       >
@@ -83,8 +84,17 @@
 .my-actions{
     justify-content: center;
 }
-.my-img{
-    justify-content: center;
-    background-position: center;
+.my-button{
+    background-color: #FFBD59;
 }
+
+.my-text{
+  padding-bottom: 0%;
+}
+.my-card{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 30px;
+}
+
 </style>

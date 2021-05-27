@@ -117,13 +117,11 @@
     .grid-content {
         grid-area: thecontent;
         width: 100%;
-        height: 82vh;
+       /* height: 82vh;*/
     }
 
     .grid-side {
         grid-area: sidecontent;
-        width: 12vw;
-        height: 82vh;
     }
 
     .grid-foot {
