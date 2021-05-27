@@ -5,18 +5,7 @@
 </template>
 <script>
 
-    import Controller from '@/mixins/controller'
     
-    class Customer extends Controller {
-
-        constructor( name, subComponentList = []) {
-            super( name, subComponentList );
-            this.vm = {
-            }
-        }
-    }
-
-    export default new Customer('Customer');
 
 </script>
 

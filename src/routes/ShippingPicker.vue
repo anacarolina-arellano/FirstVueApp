@@ -4,6 +4,20 @@
         <div class="shipping">
             <h2>Shipping Picker</h2>
             <h3>Pick List</h3>
+            <itemToPick
+                class="my-card"
+                itemsName="Dress"
+                quantity ="1"
+                itemsLocation="2nd shelf"
+                >
+            </itemToPick>
+            <itemToPick
+                class="my-card"
+                itemsName="Dress"
+                quantity ="1"
+                itemsLocation="2nd shelf"
+                >
+            </itemToPick>
             <h3>Shipping Info</h3>
             <v-btn
             class="my-button"
@@ -17,6 +31,7 @@
 <script>
 
     import Controller from '@/mixins/controller'
+    import itemToPick from "../components/ItemToPick"
 
     class ShippingPicker extends Controller {
 
@@ -25,7 +40,7 @@
             this.vm = {
             }
             this.components ={
-                
+                itemToPick
             }
         }
     }
@@ -53,5 +68,9 @@ h3{
     margin-left: auto;
     margin-right:auto;
     display: block;
+}
+.my-card{
+    color:black;
+    background-color: #ffd79b;
 }
 </style>

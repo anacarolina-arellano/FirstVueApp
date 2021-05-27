@@ -36,7 +36,4 @@
     export default new Filter('Filter');
 </script>
 <style scoped>
-.my-card{
-  
-}
 </style>
