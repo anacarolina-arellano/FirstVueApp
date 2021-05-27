@@ -4,20 +4,11 @@
 -->
 <template>
 
-    <main class="grid-frame vue-main-rootcomponent">
-        <pg-header></pg-header>
-        <pg-sidebar></pg-sidebar>
-
-        <!-- TODO:have this dynamically change and generate appropriate info for different sections -->
-        <router-view></router-view>
-
-        <div class="dialog-container">
-            <!-- dialogs instanciate within this container -->
-        </div>
-        <div class="loader">
-            <svg viewBox="0 0 32 32" width="32" height="32">
-                <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
-            </svg>
+    <main class="vue-main-rootcomponent">
+        <myHeader></myHeader>
+        <div class="content-wrapper">
+            <!-- TODO:have this dynamically change and generate appropriate info for different sections -->
+            <router-view></router-view>
         </div>
     </main>
 
@@ -26,7 +17,7 @@
     // typical Vue component controller defined and registered here
     import Controller from '@/mixins/controller'
 
-    import pgHeader  from '@/components/Header.vue'
+    import myHeader  from '@/components/Header.vue'
     import pgNavbar from '@/components/Navbar.vue'
     import pgSidebar from '@/components/Sidebar.vue'
 
@@ -46,7 +37,7 @@
     }
 
     // export a definition for this view
-    export default new AppController('pgApp', { pgHeader, pgSidebar, pgNavbar });
+    export default new AppController('WarehouseApp', { myHeader, pgSidebar, pgNavbar });
 
 </script>
 <style>
@@ -75,7 +66,7 @@
     }
 
     body {
-        background-color: rgb(194, 193, 193);
+        background-color: white;
         font-family: 'Maven Pro', Helvetica, sans-serif;
         overflow: hidden;
     }
@@ -102,6 +93,7 @@
     /* GRID FRAME/CONTAINER (PARENT) */
     .grid-frame {
         display: grid;
+        align-items: center;
         grid-template-columns: repeat(10, 1fr);
         grid-auto-rows: auto;
         grid-template-areas:
@@ -125,13 +117,11 @@
     .grid-content {
         grid-area: thecontent;
         width: 100%;
-        height: 82vh;
+       /* height: 82vh;*/
     }
 
     .grid-side {
         grid-area: sidecontent;
-        width: 12vw;
-        height: 82vh;
     }
 
     .grid-foot {
@@ -169,7 +159,7 @@
     /* FLEX CONTAINER (PARENT) */
     .flexbox {
         display: flex;
-        background-color: rgb(241, 244, 247);
+        background-color: white;
         height: 100%;
     }
 
@@ -180,18 +170,18 @@
 
     /* header */
     .header {
-        background: #D10034;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         box-shadow: 0 4px 5px -5px #222;
+        height: 100px;
     }
 
     .logo {
-        background-image:url("assets/vfs_logo.png");
+        background-image:url("./assets/mywh.png");
         background-size:100% 100%;
-        height: 120px;
-        width: 165px;
+        height: 130px;
+        width: 130px;
         margin-left: 1em;
         cursor: pointer;
     }
@@ -290,22 +280,22 @@
 
     /* Heading Styles */
     h1 {
-        color: white;
+        color: black;
     }
 
     h2 {
-        color: white;
+        color: black;
         font-family: 'Roboto', Helvetica, sans-serif;
         margin: 3px 0px 3px 0px;
     }
 
     h3{
-        color: white;
+        color: black;
         font-family: 'Raleway', Helvetica, sans-serif;
     }
 
     h4{
-        color: white;
+        color: black;
         font-family: 'Raleway', Helvetica, sans-serif;
     }
 
@@ -330,5 +320,9 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2c3e50;
+    }
+
+    .content-wrapper{
+        padding: 160px 24px 24px;
     }
 </style>

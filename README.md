@@ -1,3 +1,32 @@
+###**PG20 T3 JavaScript Frameworks - A1: UI and Navigation**
+Submitted by: Ana Carolina Arellano
+Date: 24/05/2021
+Version: 1
+----------
+####**Description of what the project does**
+This is the User Interface and Navigation of my warehouse project. It does not contain any implamentation related to data but shows how the website will look like once implemented. For this purpose, data has been hardcoded in order to display the components done in this stage of development
+
+####**Download/Install**
+---------
+ - Browse to demo link
+ - [Download Zip](https://github.com/anacarolina-arellano/FirstVueApp)
+ - Clone the 'master' branch of repository into your machine
+ - From the terminal go to the location where the repo was cloned
+ - From the 'FirstVueApp' folder run the command 'npm install' to install the dependencies
+ - Run the command 'vue ui' to run the project
+ - In your browser go to: http://localhost:8000
+ - Go to tasks -> serve -> click on 'run task'
+ - Click on 'Open App'
+
+
+####**How to use**
+--------
+- the user can go to Customer page
+- the user can go to Inventory Manager page
+- the user can go to Sales page
+- the user can go to Shipping Picker page
+
+####**Credits**
 # VueAppTemplate
 
 Base template for HTML5/CSS3 app using latest ES2017 JavaScript on Vue.js framework.
@@ -47,10 +76,15 @@ MainComponent.js behaves a bit differently for it is a Vue.component but also ha
         |   |   └── sampleComponent.vue
         |   ├── /views                # built out of components, collections
         |   |   ├── header.vue        # components declared in index.js
+        |   |   ├── ChooseRole.vue
+        |   |   ├── MyCartButton.vue
+        |   |   ├── Searchbar.vue
+        |   |   ├── Card.vue
         |   |   ├── navbar.vue
         |   |   └── sidebar.vue
         |   └── /routes               # edges that the user may navigate to
         |       ├── About.vue
+        |       |-- Customer.vue
         |       └── Home.vue          # application's main vue component
         |
         ├── /server                   #back-end - if applicable
@@ -89,6 +123,7 @@ Simply drop the this project folder to your WebServer folder and access your Ser
 
 ## Built With
 * **Vue.js 2.0** - The web framework used.
+* **Vuetify** - The library used for Vue's components.
 * **Axios.js** - Promise based HTTP client used for AJAX.
 * **Php 7** - Back-end server.
 * **CSS Grid** - Used for this application's main styling structure.
