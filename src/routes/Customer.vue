@@ -37,7 +37,32 @@
             </myCard>
            
         </v-row>
-        
+        <v-row>
+            <myCard nameProduct="Blue Dress"
+                    price="50"
+                    category="Clothing"
+                    description="Beautiful dress that is perfect for 
+                    any event! Its blue color is trendy, there are
+                    only a few left! "
+                    imageName="dress.jpeg">
+            </myCard>
+            <myCard nameProduct="Nike Shoes"
+                    price="70"
+                    category="Shoes"
+                    description="This pair of shoes is perfect for
+                    any occasion. They are super comfortable, you'll
+                    love them!"
+                    imageName="shoes.jpg">
+            </myCard>
+            <myCard nameProduct="White top"
+                    price="36"
+                    category="Tops"
+                    description="White top that is perfect for the summer,
+                    it is made of good materials and fits sizes S and M. "
+                    imageName="top.jpeg">
+            </myCard>
+           
+        </v-row>
     </div>
     
 </template>

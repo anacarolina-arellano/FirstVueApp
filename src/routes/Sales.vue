@@ -16,6 +16,7 @@
             label="Employee's Name"
             required
           ></v-text-field>
+          <autocomplete></autocomplete>
         </validation-provider>
         <h3>Shipping info</h3>
         <validation-provider
@@ -86,6 +87,7 @@
 </template>
 <script>
     import Controller from "@/mixins/controller";
+    import autocomplete from '../components/Autocomplete'
     import { required, digits, email, max, regex } from "vee-validate/dist/rules";
     import {
     extend,
@@ -97,8 +99,25 @@
 class Sales extends Controller {
   constructor(name, subComponentList = []) {
     super(name, subComponentList);
-    this.vm = {};
-    this.components = {};
+    this.vm = {
+      name: '',
+      phoneNumber: '',
+      email: '',
+      select: null,
+      items: [
+        'Item 1',
+        'Item 2',
+        'Item 3',
+        'Item 4',
+      ],
+      checkbox: null,
+    };
+    this.components = { 
+        ValidationProvider,
+        ValidationObserver,
+        autocomplete 
+    };
+    
     setInteractionMode("eager");
     extend("digits", {
       ...digits,
@@ -127,41 +146,20 @@ class Sales extends Controller {
 
     
   }
-}
 
-export default {
-        components: {
-        ValidationProvider,
-        ValidationObserver,
-        },
-        data: () => ({
-        name: '',
-        phoneNumber: '',
-        email: '',
-        select: null,
-        items: [
-            'Item 1',
-            'Item 2',
-            'Item 3',
-            'Item 4',
-        ],
-        checkbox: null,
-        }),
+  submit () {
+    this.$refs.observer.validate()
+  }
+  clear () {
+    this.name = ''
+    this.phoneNumber = ''
+    this.email = ''
+    this.select = null
+    this.checkbox = null
+    this.$refs.observer.reset()
+  }
+} export default new Sales('Sales');
 
-        methods: {
-        submit () {
-            this.$refs.observer.validate()
-        },
-        clear () {
-            this.name = ''
-            this.phoneNumber = ''
-            this.email = ''
-            this.select = null
-            this.checkbox = null
-            this.$refs.observer.reset()
-        },
-        },
-    } ;
 </script>
 <style scoped>
     h2 {

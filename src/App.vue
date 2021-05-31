@@ -53,7 +53,6 @@
     *,
     *::before,
     *::after {
-        box-sizing: border-box;
     }
 
     html {
@@ -68,7 +67,7 @@
     body {
         background-color: white;
         font-family: 'Maven Pro', Helvetica, sans-serif;
-        overflow: hidden;
+        overflow-y: scroll;
     }
 
     input[type=button] {
@@ -220,7 +219,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         overflow-x: hidden;
-        /* overflow-y: scroll; */
+        overflow-y: scroll; 
         justify-content: space-evenly;
         background: #FFFFFF;
     }
@@ -232,13 +231,12 @@
     .edit-form {
         display: grid;
         grid-template-areas: ".form.";
-        overflow: hidden;
         width: 65vw;
     }
 
     .edit-form-child {
         grid-area: form;
-        overflow: auto;
+        overflow: scroll;
     }
 
     .formitems{

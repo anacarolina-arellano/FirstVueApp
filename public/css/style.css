@@ -16,7 +16,6 @@ body {
     background-color: white;
     color: black;
     font-family: 'Maven Pro', Helvetica, sans-serif;
-    overflow: hidden;
 }
 
 input[type=button] {
@@ -195,7 +194,7 @@ ul {
     flex-direction: column;
     justify-content: flex-start;
     list-style-type: none;
-    overflow: hidden;
+    
 }
 
 li {
