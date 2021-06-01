@@ -1,16 +1,13 @@
-<!--
-VFS VUE Single File Component
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
 
-<pg-home user="User"></pg-home>
-
-Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
--->
+//template of the main page
 <template>
 
     <section class="home-container">
         <div class="home">
             <h2>Welcome to the {{ name }}</h2>
             <h2>Please select a role: </h2>
+            <!--Display available roles-->
             <roles name="Customer" class="roles"> </roles>
             <roles name="Inventory Manager" class="roles"> </roles>
             <roles name="Sales" class="roles"> </roles>
@@ -34,6 +31,7 @@ Copyright (c) 2018. Scott Henshaw, Kibble Online Inc. All Rights Reserved.
                 name: String,
             }
             this.components ={
+                //include component
                 roles
             }
         }

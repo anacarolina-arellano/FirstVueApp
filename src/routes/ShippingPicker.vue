@@ -1,3 +1,6 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of the page
 <template>
 
     <section class="shipping-container">
@@ -41,17 +44,18 @@
 
 </template>
 <script>
-
+    
     import Controller from '@/mixins/controller'
     import itemToPick from "../components/ItemToPick"
 
     class ShippingPicker extends Controller {
-
+        //Shipping Picker class
         constructor( name, subComponentList = []) {
             super( name, subComponentList );
             this.vm = {
             }
             this.components ={
+                //uses the component ItemToPick
                 itemToPick
             }
         }

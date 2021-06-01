@@ -1,3 +1,6 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of the page
 <template>
   <section class="sales-container">
     <div class="sales-form">

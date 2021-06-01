@@ -1,3 +1,6 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of form to add the information of a product
 <template>
   <div class="text-center">
     <h3>Product {{num}}</h3>
@@ -68,9 +71,6 @@
             required
           ></v-text-field>
         </validation-provider>
-        
-       
-        
       </form>
     </validation-observer>
   </div>
@@ -89,8 +89,23 @@
 
         constructor( name, subComponentList = []) {
             super( name, subComponentList )
-            this.vm = {};
-            this.components = {};
+            this.vm = {
+              name: '',
+              phoneNumber: '',
+              email: '',
+              select: null,
+              items: [
+                  'Item 1',
+                  'Item 2',
+                  'Item 3',
+                  'Item 4',
+              ],
+              checkbox: null,
+            };
+            this.components = {
+              ValidationProvider,
+              ValidationObserver,
+            };
             setInteractionMode("eager");
             extend("digits", {
               ...digits,
@@ -118,41 +133,17 @@
             })
             
         }
-    }
-export default {
-        components: {
-        ValidationProvider,
-        ValidationObserver,
-        
-        },
-        data: () => ({
-        name: '',
-        phoneNumber: '',
-        email: '',
-        select: null,
-        items: [
-            'Item 1',
-            'Item 2',
-            'Item 3',
-            'Item 4',
-        ],
-        checkbox: null,
-        }),
-
-        methods: {
         submit () {
             this.$refs.observer.validate()
-        },
+        }
         clear () {
             this.itemsName = ''
             this.quantity = 0
             this.wholesalePrice= 0
             this.retailPrice = 0
             this.$refs.observer.reset()
-        },
-        },
-    } ;
-
+        }
+    } export default new ProductInfo('ProductInfo');
 </script>
 <style scoped>
 

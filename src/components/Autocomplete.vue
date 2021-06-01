@@ -1,3 +1,7 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of the auto complete that gives the options 'in person' and 'by phone'
+//used in thee sales page
 <template>
   <v-card>
     <v-container fluid>
@@ -22,7 +26,7 @@
   export default {
     data: () => ({
       items: ['In Person', 'By Phone'],
-      value: null,
+      value: 'In Person',
     }),
   }
 </script>

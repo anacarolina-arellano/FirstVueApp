@@ -1,3 +1,6 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of the cart button
 <template>
     <v-btn class="my-cart-button">
         <v-icon
@@ -17,7 +20,6 @@
         constructor( name, subComponentList = []) {
             super( name, subComponentList );
             this.vm = {
-
             }
         }
     }

@@ -1,3 +1,6 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of the card that contains all the information of each product that needs to be picked
 <template>
   <v-card
     max-width="400"

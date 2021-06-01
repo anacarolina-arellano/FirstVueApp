@@ -1,17 +1,24 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of the customer page
 <template>
     <div>
         <v-row>
             <v-col cols="10">
+                <!--Use component of searbar-->
                 <searchbar></searchbar> 
             </v-col>
             <v-col cols="2">
+                <!--Use component of cart button-->
                 <cartButton></cartButton>
             </v-col>
         </v-row>
 
         <v-row class="my-filter">
+            <!--Use component of filter-->
             <filterOption></filterOption></v-row>
         <v-row>
+            <!--Use component of cards for procuts-->
             <myCard nameProduct="Blue Dress"
                     price="50"
                     category="Clothing"
@@ -81,6 +88,7 @@
             this.vm = {
             }
             this.components = {
+                //include components to be used
                 searchbar,
                 cartButton,
                 myCard,
