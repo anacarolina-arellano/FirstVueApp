@@ -136,7 +136,6 @@ input[type=button]:focus {
     background: #FFBD59; 
     flex-direction: row;
     align-items: flex-start;
-    position: fixed;
     justify-content: space-between;
     margin-bottom: 10px;
     width: 100%;

@@ -321,6 +321,6 @@
     }
 
     .content-wrapper{
-        padding: 160px 24px 24px;
+        padding: 10px 24px 24px;
     }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="text-center">
     <h3>Product {{num}}</h3>
-      <validation-observer ref="observer" v-slot="{ invalid }">
+      <validation-observer ref="observer" v-slot="{  }">
       <form @submit.prevent="submit">
         <validation-provider
           v-slot="{ errors }"
@@ -69,12 +69,7 @@
           ></v-text-field>
         </validation-provider>
         
-        <v-row class="my-row"> 
-            <v-btn @click="addBtn"> Add more items </v-btn>
-        </v-row>
-        <v-row>
-            <v-btn  class="mr-4" type="submit" :disabled="invalid"> Register Incoming Shipment </v-btn>
-        </v-row>
+       
         
       </form>
     </validation-observer>
@@ -168,8 +163,4 @@ export default {
         font-weight: bold;
     }
 
-    .my-row{
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
 </style>
