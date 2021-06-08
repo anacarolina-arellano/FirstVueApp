@@ -1,10 +1,10 @@
-###**PG20 T3 JavaScript Frameworks - A1: UI and Navigation**
+###**PG20 T3 JavaScript Frameworks - A2: Routes, Controllers, Directives, Events**
 Submitted by: Ana Carolina Arellano
-Date: 24/05/2021
-Version: 1
+Date: 07/06/2021
+Version: 2
 ----------
 ####**Description of what the project does**
-This is the User Interface and Navigation of my warehouse project. It does not contain any implamentation related to data but shows how the website will look like once implemented. For this purpose, data has been hardcoded in order to display the components done in this stage of development
+This is the basic app of my Warehouse project. It contains the UI, navigation and the four main roles of the project: the customer, the inventory manager, the shipping picker and the sales. In order to achieve the goals for the app, I made use of Vue directives and event handlers.
 
 ####**Download/Install**
 ---------
@@ -13,113 +13,17 @@ This is the User Interface and Navigation of my warehouse project. It does not c
  - Clone the 'master' branch of repository into your machine
  - From the terminal go to the location where the repo was cloned
  - From the 'FirstVueApp' folder run the command 'npm install' to install the dependencies
- - Run the command 'vue ui' to run the project
- - In your browser go to: http://localhost:8000
- - Go to tasks -> serve -> click on 'run task'
- - Click on 'Open App'
+
 
 
 ####**How to use**
 --------
-- the user can go to Customer page
-- the user can go to Inventory Manager page
-- the user can go to Sales page
-- the user can go to Shipping Picker page
+- In the terminal go to the project
+- Run the command 'vue ui' to run the project
+- In your browser go to: http://localhost:8000
+- Go to tasks -> serve -> click on 'run task'
+- Click on 'Open App'
 
-####**Credits**
-# VueAppTemplate
-
-Base template for HTML5/CSS3 app using latest ES2017 JavaScript on Vue.js framework.
-
-This HTML5 App template is ES2015+ compliant, will run in all browsers natively without the need for any "compiler" or 3rd party pre-processing solution (Babel, Node, Broswerify, etc NOT required).
-
-Modern browsers continue to evolve and extend the basic functionality and as of ES2017 full module support, class (style) based inheritance, scoping are all available to make it easy for non JavaScript programmers to get into JavaScript.
-
-This HTML5 App also uses CSS3 Grid Layouts with Flexbox.
-
-- [VueAppTemplate](#vueapptemplate)
-    - [Getting Started](#getting-started)
-        - [Main Component](#main-component)
-    - [Application Structure](#application-structure)
-        - [Project Folder](#project-folder)
-        - [Vue Components](#vue-components)
-        - [HTML and Styling](#html-and-styling)
-    - [Deployment](#deployment)
-    - [Built With](#built-with)
-    - [Authors](#authors)
-    - [License](#license)
-
-## Getting Started
-In this application, the use of components is an imitation of Vue's "single page component" or "SPC". I say an imitation because due to the reliance of SPCs to "dependencies"/"modules" (webpack, npm, etc..), I've created a workaround of this app's components. It is represented as javascript class objects which takes in Vue's "Vue.component" in the constructor.
-
-All the components have color coded borders:
-* MainRootComponent = Red solid border
-* Components = Green solid border
-* Sub-Components = Light Green dashed border
-### Main Component
-MainComponent.js behaves a bit differently for it is a Vue.component but also has a Vue Root, all components declared in this component is declared globally.
-
-## Application Structure
-### Project Folder
-
-```
-        ├── /dist                    # auto generated don't touch
-        |
-        ├── /mixins
-        |   ├── http.js
-        |   ├── sampleDirective.js
-        |   └── controller.js
-        |
-        ├── /src
-        |   ├── main.js               # main entry to vue application
-        |   ├── /components           # things you resuse everywhere, parameterize with props (new html)
-        |   |   └── sampleComponent.vue
-        |   ├── /views                # built out of components, collections
-        |   |   ├── header.vue        # components declared in index.js
-        |   |   ├── ChooseRole.vue
-        |   |   ├── MyCartButton.vue
-        |   |   ├── Searchbar.vue
-        |   |   ├── Card.vue
-        |   |   ├── navbar.vue
-        |   |   └── sidebar.vue
-        |   └── /routes               # edges that the user may navigate to
-        |       ├── About.vue
-        |       |-- Customer.vue
-        |       └── Home.vue          # application's main vue component
-        |
-        ├── /server                   #back-end - if applicable
-        |   ├── server.js             # main entry to server edges
-        |   └── /command
-        |   └── ...
-        |
-        └── /public
-            ├── index.html            # html5 app entry
-            ├── /assets                # .png or .jpg files
-            |   ├── vfs_logo.phg
-            |   └── <my_image.png> ... # images naming convention
-            |
-            └── /css                   # where all styling lives
-                ├── style.css
-                ├── media.css
-                └── ...
-```
-### HTML and Styling
-* All the "wrapper" is in a form of CSS GRID Layout.
-* Each CSS GRID "area" has a "container" in a form of "flexbox".
-* And each CSS Flexbox "container" contains "flexitems".
-
-Application's HTML5 Structure:
-All the "wrapper" is in a form of CSS GRID Layout.
-Each grid "area" has a "container" in a form of "flexbox".
-And each flexbox "container" contains "flexitems".
-
-All of the traditional, functional traits of JavaScript are mantained but made easier to access as beginners and programmers coming from other languages.
-
-Enjoy this base template.
-
-## Deployment
-This application runs on a Apache Web Server.
-Simply drop the this project folder to your WebServer folder and access your Server's domain.
 
 ## Built With
 * **Vue.js 2.0** - The web framework used.
@@ -132,6 +36,7 @@ Simply drop the this project folder to your WebServer folder and access your Ser
 ## Authors
 * **Clinton Jay Ramonida** - *Integrated Vue.js 2.0, (Expanded from HTML5AppTemplate).*
 * **Scott Henshaw** - *Initial work (HTML5AppTemplate).*
+* **Ana Carolina Arellano** - *Warehouse implementation*
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
