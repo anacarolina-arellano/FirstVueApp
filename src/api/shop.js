@@ -3,11 +3,15 @@
  * Mocking client-server processing
  */
  const _products = [
-    { 'id': 1, 'nameProduct': 'iPad 4 Mini', 'price': 500.01, 'inventory': 2, 'category':'Clothing',
+    { 'id': 1, 'nameProduct': 'Blue Dress', 'price': 500.01, 'inventory': 2, 'category':'Clothing',
     'description':'Beautiful dress that is perfect for any event! Its blue color is trendy, there are only a few left!',
     'imageName':"dress.jpeg" },
-    { 'id': 2, 'nameProduct': 'H&M T-Shirt White', 'price': 10.99, 'inventory': 10 },
-    { 'id': 3, 'nameProduct': 'Charli XCX - Sucker CD', 'price': 19.99, 'inventory': 5 }
+    { 'id': 2, 'nameProduct': 'Nike Shoes', 'price': 70.99, 'inventory': 10, 'category':'Shoes',
+    'description':'This pair of shoes is perfect for any occasion. They are super comfortable, you will love them!',
+     'imageName':'shoes.jpg'},
+    { 'id': 3, 'nameProduct': 'White top', 'price': 19.99, 'inventory': 5,'category':'tops',
+    'description':'White top that is perfect for the summer, it is made of good materials and fits sizes S and M.',
+    'imageName':'top.jpeg' }
   ]
   
   export default {

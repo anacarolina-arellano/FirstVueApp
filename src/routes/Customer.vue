@@ -16,60 +16,21 @@
 
         <v-row class="my-filter">
             <!--Use component of filter-->
-            <filterOption></filterOption></v-row>
+            <filterOption></filterOption>
+        </v-row>
         <v-row>
             <!--Use component of cards for procuts-->
-            <myCard nameProduct="Blue Dress"
-                    price="50"
-                    category="Clothing"
-                    description="Beautiful dress that is perfect for 
-                    any event! Its blue color is trendy, there are
-                    only a few left! "
-                    imageName="dress.jpeg">
-            </myCard>
-            <myCard nameProduct="Nike Shoes"
-                    price="70"
-                    category="Shoes"
-                    description="This pair of shoes is perfect for
-                    any occasion. They are super comfortable, you'll
-                    love them!"
-                    imageName="shoes.jpg">
-            </myCard>
-            <myCard nameProduct="White top"
-                    price="36"
-                    category="Tops"
-                    description="White top that is perfect for the summer,
-                    it is made of good materials and fits sizes S and M. "
-                    imageName="top.jpeg">
+            <myCard v-for="product in products" :key="product.id"
+                    :nameProduct="product.nameProduct"
+                    :price="product.price"
+                    :category="product.category"
+                    :description="product.description"
+                    :imageName="product.imageName">
             </myCard>
            
-        </v-row>
-        <v-row>
-            <myCard nameProduct="Blue Dress"
-                    price="50"
-                    category="Clothing"
-                    description="Beautiful dress that is perfect for 
-                    any event! Its blue color is trendy, there are
-                    only a few left! "
-                    imageName="dress.jpeg">
-            </myCard>
-            <myCard nameProduct="Nike Shoes"
-                    price="70"
-                    category="Shoes"
-                    description="This pair of shoes is perfect for
-                    any occasion. They are super comfortable, you'll
-                    love them!"
-                    imageName="shoes.jpg">
-            </myCard>
-            <myCard nameProduct="White top"
-                    price="36"
-                    category="Tops"
-                    description="White top that is perfect for the summer,
-                    it is made of good materials and fits sizes S and M. "
-                    imageName="top.jpeg">
-            </myCard>
            
         </v-row>
+       
     </div>
     
 </template>
@@ -80,6 +41,7 @@
     import cartButton from '../components/MyCartButton'
     import myCard from '../components/Card'
     import filterOption from '../components/Filter'
+    import {mapState, mapGetters, mapActions} from 'vuex'
 
     class Customer extends Controller {
 
@@ -94,6 +56,41 @@
                 myCard,
                 filterOption,
             }
+
+            this.computed = {
+                ...mapGetters({
+                    productIsInStock: 'productIsInStock'
+                }),
+                ...mapState({
+                    products: state => state.products
+                }),
+
+                productIsInStock(){
+                    return this.$store.getters.productIsInStock
+                }
+            }
+            this.methods = {
+                ...mapActions({
+                    fetchProducts:'fetchProducts'
+                }),
+
+                addProductToCart(product){
+                    this.$store.dispatch('addProductToCart', product)
+                }
+            }
+        }
+        data(){
+            return{
+                loading: false
+            }
+        }
+
+        
+        created(){
+            console,log("se llamo")
+            this.loading = true
+            this.fetchProducts()
+            .then(() => this.loading = false)
         }
     }
 

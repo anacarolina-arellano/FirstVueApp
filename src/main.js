@@ -11,12 +11,13 @@ import Vue from 'vue'
 import vuetify from '@/plugins/vuetify'
 //registering(globally) our router to our root #app
 import store from '@/store'
-
+import {currency} from '@/currency'
 import router from '@/router'
 
 //This is were we register every components that is instantiated in this Main Root Component.
 import App from '@/App.vue'
-
+Vue.config.productionTip = false
+Vue.filter('currency', currency)
 class MainApp {
 
     constructor () {
