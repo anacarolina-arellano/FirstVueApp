@@ -1,3 +1,7 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of the buttons that appear in the main page. 
+//They direct you to the desired page 
 <template>
   <div class="text-center ">
     <v-btn
@@ -20,6 +24,7 @@
         constructor( name, subComponentList = []) {
             super( name, subComponentList )
             this.props = {
+              //needed prop
               name: String
             }
             

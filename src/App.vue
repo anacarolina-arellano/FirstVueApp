@@ -1,14 +1,28 @@
 <!--
 <pg-app></pg-app>
-@copyright (c) 2018. Scott Henshaw, Clinton Jay Ramonida. All Rights Reserved.
+@copyright (c) 2018. Scott Henshaw, Clinton Jay Ramonida, Ana Carolina Arellano. All Rights Reserved.
 -->
 <template>
 
     <main class="vue-main-rootcomponent">
+        <!--Header component-->
         <myHeader></myHeader>
         <div class="content-wrapper">
             <!-- TODO:have this dynamically change and generate appropriate info for different sections -->
             <router-view></router-view>
+            <!--Footer-->
+            <v-footer
+                color="primary lighten-1"
+                padless
+            >
+                <v-col
+                    class="primary lighten-2 py-4 text-center white--text"
+                    cols="12"
+                >
+                    {{ new Date().getFullYear() }} — <strong>Built with love by Ana Carolina Arellano</strong>
+                </v-col>
+            </v-footer>
+            <!--End of footer-->
         </div>
     </main>
 
@@ -18,26 +32,18 @@
     import Controller from '@/mixins/controller'
 
     import myHeader  from '@/components/Header.vue'
-    import pgNavbar from '@/components/Navbar.vue'
-    import pgSidebar from '@/components/Sidebar.vue'
-
+    //App Controller class
     class AppController extends Controller {
 
         constructor( name, subComponentList = []) {
             super( name, subComponentList );
             this.vm = {
-                title: 'Creative Tech Projects',
-                subtitle: ''
             }
-        }
-
-        doIt() {
-            this.title = 'A new title'; // refers to viewModel.title (or it will)
         }
     }
 
     // export a definition for this view
-    export default new AppController('WarehouseApp', { myHeader, pgSidebar, pgNavbar });
+    export default new AppController('WarehouseApp', { myHeader});
 
 </script>
 <style>
@@ -46,15 +52,10 @@
     *
     * @Copyright 2014-2015, Vancouver Film School, In cooperation with Kibble Games Inc.
     * @author: Scott Henshaw
-    * @Contributor: Clinton Ramonida
+    * @Contributor: Clinton Ramonida, Ana Carolina Arellano Alvarez
     */
 
     /* DEFAULTS */
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-    }
 
     html {
         font-size: 100%;
@@ -68,7 +69,7 @@
     body {
         background-color: white;
         font-family: 'Maven Pro', Helvetica, sans-serif;
-        overflow: hidden;
+        overflow-y: scroll;
     }
 
     input[type=button] {
@@ -220,7 +221,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         overflow-x: hidden;
-        /* overflow-y: scroll; */
+        overflow-y: scroll; 
         justify-content: space-evenly;
         background: #FFFFFF;
     }
@@ -232,13 +233,12 @@
     .edit-form {
         display: grid;
         grid-template-areas: ".form.";
-        overflow: hidden;
         width: 65vw;
     }
 
     .edit-form-child {
         grid-area: form;
-        overflow: auto;
+        overflow: scroll;
     }
 
     .formitems{
@@ -299,21 +299,6 @@
         font-family: 'Raleway', Helvetica, sans-serif;
     }
 
-
-
-    /* Vue components Styles */
-    .vue-main-rootcomponent{
-        /* border: 2px solid black; */
-    }
-
-    .vue-component{
-        /* border: 2px solid black;  */
-    }
-
-    .vue-sub-component{
-        /* border: 2px solid black; */
-    }
-
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -323,6 +308,6 @@
     }
 
     .content-wrapper{
-        padding: 160px 24px 24px;
+        padding: 10px 24px 24px;
     }
 </style>

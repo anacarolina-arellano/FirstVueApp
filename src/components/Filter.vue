@@ -1,3 +1,6 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of the component that will help filtering the products
 <template>
   <v-card class="my-card">
     <v-container fluid>
@@ -31,12 +34,11 @@
               value :['Shoes', 'Tops', 'Bottoms', 'Swimwear']
             }
         }
+        //TODO: Actually filter products
     }
 
     export default new Filter('Filter');
 </script>
 <style scoped>
-.my-card{
-  
-}
+
 </style>

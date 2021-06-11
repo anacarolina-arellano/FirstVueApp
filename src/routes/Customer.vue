@@ -1,16 +1,49 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of the customer page
 <template>
     <div>
         <v-row>
             <v-col cols="10">
+                <!--Use component of searbar-->
                 <searchbar></searchbar> 
             </v-col>
             <v-col cols="2">
+                <!--Use component of cart button-->
                 <cartButton></cartButton>
             </v-col>
         </v-row>
 
         <v-row class="my-filter">
+            <!--Use component of filter-->
             <filterOption></filterOption></v-row>
+        <v-row>
+            <!--Use component of cards for procuts-->
+            <myCard nameProduct="Blue Dress"
+                    price="50"
+                    category="Clothing"
+                    description="Beautiful dress that is perfect for 
+                    any event! Its blue color is trendy, there are
+                    only a few left! "
+                    imageName="dress.jpeg">
+            </myCard>
+            <myCard nameProduct="Nike Shoes"
+                    price="70"
+                    category="Shoes"
+                    description="This pair of shoes is perfect for
+                    any occasion. They are super comfortable, you'll
+                    love them!"
+                    imageName="shoes.jpg">
+            </myCard>
+            <myCard nameProduct="White top"
+                    price="36"
+                    category="Tops"
+                    description="White top that is perfect for the summer,
+                    it is made of good materials and fits sizes S and M. "
+                    imageName="top.jpeg">
+            </myCard>
+           
+        </v-row>
         <v-row>
             <myCard nameProduct="Blue Dress"
                     price="50"
@@ -37,7 +70,6 @@
             </myCard>
            
         </v-row>
-        
     </div>
     
 </template>
@@ -56,6 +88,7 @@
             this.vm = {
             }
             this.components = {
+                //include components to be used
                 searchbar,
                 cartButton,
                 myCard,

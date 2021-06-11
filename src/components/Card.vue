@@ -1,3 +1,6 @@
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez
+
+//template of the cards that hold the information of each product in  the customer page
 <template>
   <v-card
     :loading="loading"
@@ -68,6 +71,7 @@
         constructor( name, subComponentList = []) {
             super( name, subComponentList )
             this.props = {
+              //needed props per card
               nameProduct: String,
               price: Number,
               category: String,
