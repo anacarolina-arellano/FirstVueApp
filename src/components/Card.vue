@@ -56,7 +56,7 @@
         color="deep-purple lighten-2"
         class="my-button"
         text
-        @click="reserve"
+        @click="addProductToCart(nameProduct)"
       >
         {{nameProduct}} <br/> ${{price}}
       </v-btn>
@@ -65,21 +65,19 @@
 </template>
 <script>
     import Controller from '@/mixins/controller'
-
     class Card extends Controller {
 
-        constructor( name, subComponentList = []) {
-            super( name, subComponentList )
-            this.props = {
-              //needed props per card
-              nameProduct: String,
-              price: Number,
-              category: String,
-              description: String,
-              imageName: String
-            }
-            
+      constructor( name, subComponentList = []) {
+        super( name, subComponentList )
+        this.props = {
+          //needed props per card
+          nameProduct: String,
+          price: Number,
+          category: String,
+          description: String,
+          imageName: String
         }
+      }
     }
 
     export default new Card('myCard');
