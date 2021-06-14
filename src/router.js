@@ -14,6 +14,7 @@ import Customer from '@/routes/Customer.vue'
 import InventoryManager from '@/routes/InventoryManager.vue'
 import Sales from '@/routes/Sales.vue'
 import ShippingPicker from '@/routes/ShippingPicker.vue'
+import ShoppingCart from '@/routes/ShoppingCart.vue'
 
 
 export default new Router({
@@ -23,6 +24,7 @@ export default new Router({
         { path:"/customer", name:"Customer", component: Customer },
         { path:"/inventorymanager", name:"Inventory Manager", component: InventoryManager },
         { path:"/sales", name:"Sales", component: Sales },
-        { path:"/shippingpicker", name:"Shipping Picker", component: ShippingPicker }
+        { path:"/shippingpicker", name:"Shipping Picker", component: ShippingPicker },
+        { path:"/shoppingcart", name:"Shopping Cart", component: ShoppingCart }
     ]
 });

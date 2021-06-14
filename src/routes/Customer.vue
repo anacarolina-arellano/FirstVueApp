@@ -1,111 +1,96 @@
-//Copyright (C) 2021 Ana Carolina Arellano Alvarez
-
-//template of the customer page
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez //template of the customer
+page
 <template>
-    <div>
-        <v-row>
-            <v-col cols="10">
-                <!--Use component of searbar-->
-                <searchbar></searchbar> 
-            </v-col>
-            <v-col cols="2">
-                <!--Use component of cart button-->
-                <cartButton></cartButton>
-            </v-col>
-        </v-row>
+  <div>
+    <v-row>
+      <v-col cols="10">
+        <!--Use component of searbar-->
+        <searchbar></searchbar>
+      </v-col>
+      <v-col cols="2">
+        <!--Use component of cart button-->
+        <cartButton></cartButton>
+      </v-col>
+    </v-row>
 
-        <v-row class="my-filter">
-            <!--Use component of filter-->
-            <filterOption></filterOption></v-row>
-        <v-row>
-            <!--Use component of cards for procuts-->
-            <myCard nameProduct="Blue Dress"
-                    price="50"
-                    category="Clothing"
-                    description="Beautiful dress that is perfect for 
-                    any event! Its blue color is trendy, there are
-                    only a few left! "
-                    imageName="dress.jpeg">
-            </myCard>
-            <myCard nameProduct="Nike Shoes"
-                    price="70"
-                    category="Shoes"
-                    description="This pair of shoes is perfect for
-                    any occasion. They are super comfortable, you'll
-                    love them!"
-                    imageName="shoes.jpg">
-            </myCard>
-            <myCard nameProduct="White top"
-                    price="36"
-                    category="Tops"
-                    description="White top that is perfect for the summer,
-                    it is made of good materials and fits sizes S and M. "
-                    imageName="top.jpeg">
-            </myCard>
-           
-        </v-row>
-        <v-row>
-            <myCard nameProduct="Blue Dress"
-                    price="50"
-                    category="Clothing"
-                    description="Beautiful dress that is perfect for 
-                    any event! Its blue color is trendy, there are
-                    only a few left! "
-                    imageName="dress.jpeg">
-            </myCard>
-            <myCard nameProduct="Nike Shoes"
-                    price="70"
-                    category="Shoes"
-                    description="This pair of shoes is perfect for
-                    any occasion. They are super comfortable, you'll
-                    love them!"
-                    imageName="shoes.jpg">
-            </myCard>
-            <myCard nameProduct="White top"
-                    price="36"
-                    category="Tops"
-                    description="White top that is perfect for the summer,
-                    it is made of good materials and fits sizes S and M. "
-                    imageName="top.jpeg">
-            </myCard>
-           
-        </v-row>
-    </div>
-    
+    <v-row class="my-filter">
+      <!--Use component of filter-->
+      <filterOptions></filterOptions>
+    </v-row>
+    <v-row>
+      <!--Use component of cards for procuts-->
+      <myCard
+        v-for="product in products"
+        :key="product.id"
+        :nameProduct="product.nameProduct"
+        :price="product.price"
+        :category="product.category"
+        :description="product.description"
+        :imageName="product.imageName"
+      >
+      </myCard>
+    </v-row>
+  </div>
 </template>
 <script>
+import Controller from "@/mixins/controller";
+import searchbar from "../components/Searchbar";
+import cartButton from "../components/MyCartButton";
+import myCard from "../components/Card";
+import filterOptions from "../components/FilterOptions";
+import { mapState, mapGetters, mapActions } from "vuex";
 
-    import Controller from '@/mixins/controller'
-    import searchbar from '../components/Searchbar'
-    import cartButton from '../components/MyCartButton'
-    import myCard from '../components/Card'
-    import filterOption from '../components/Filter'
+class Customer extends Controller {
+  constructor(name, subComponentList = []) {
+    super(name, subComponentList);
+    this.vm = {
+      loading: false,
+    };
+    this.components = {
+      //include components to be used
+      searchbar,
+      cartButton,
+      myCard,
+      filterOptions,
+    };
 
-    class Customer extends Controller {
+    this.computed = {
+      ...mapGetters({
+        productIsInStock: "productIsInStock",
+      }),
+      ...mapState({
+        products: (state) => state.products,
+      }),
 
-        constructor( name, subComponentList = []) {
-            super( name, subComponentList );
-            this.vm = {
-            }
-            this.components = {
-                //include components to be used
-                searchbar,
-                cartButton,
-                myCard,
-                filterOption,
-            }
-        }
-    }
+      productIsInStock() {
+        return this.$store.getters.productIsInStock;
+      },
+    };
+    this.methods = {
+      ...mapActions({
+        fetchProducts: "fetchProducts",
+      }),
 
-    export default new Customer('Customer');
+      addProductToCart(product) {
+        this.$store.dispatch("addProductToCart", product);
+      },
+    };
+  }
 
+  onCreated() {
+    this.loading = true;
+    this.fetchProducts().then(() => (this.loading = false));
+  }
+}
+
+export default new Customer("Customer");
 </script>
 
 <style scoped>
-.my-filter{
-    max-height: fit-content;
-    margin-bottom: 15px;
-    width: 80%;
-    margin-left: 5px;
+.my-filter {
+  max-height: fit-content;
+  margin-bottom: 15px;
+  width: 80%;
+  margin-left: 5px;
 }
 </style>

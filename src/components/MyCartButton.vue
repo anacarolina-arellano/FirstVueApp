@@ -2,14 +2,18 @@
 
 //template of the cart button
 <template>
-    <v-btn class="my-cart-button">
-        <v-icon
-          dark
-          left
-        >
-          mdi-arrow-left
-        </v-icon>My Cart
-    </v-btn>
+<!-- <router-link :to="{  }">{{ name }}</router-link>-->
+    <router-link :to="{name}">
+        <v-btn class="my-cart-button">
+            <v-icon
+            dark
+            left
+            >
+            mdi-arrow-left
+            </v-icon>My Cart
+        </v-btn>
+    </router-link>
+    
 </template>
 <script>
 
@@ -20,6 +24,7 @@
         constructor( name, subComponentList = []) {
             super( name, subComponentList );
             this.vm = {
+                name: 'Shopping Cart'
             }
         }
     }

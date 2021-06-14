@@ -25,7 +25,7 @@
 <script>
     import Controller from '@/mixins/controller'
 
-    class Filter extends Controller {
+    class FilterOptions extends Controller {
 
         constructor( name, subComponentList = []) {
             super( name, subComponentList )
@@ -37,7 +37,7 @@
         //TODO: Actually filter products
     }
 
-    export default new Filter('Filter');
+    export default new FilterOptions('FilterOptions');
 </script>
 <style scoped>
 
