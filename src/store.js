@@ -1,117 +1,135 @@
-import Vuex, { Store } from 'vuex'
-import Vue from 'vue'
-import shop from './api/shop'
-import {_products} from './api/shop'
+import Vuex, { Store } from "vuex";
+import Vue from "vue";
+import shop from "./api/shop";
+import { _products } from "./api/shop";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state:{
-    products:[],
+  state: {
+    products: [],
     cart: [],
-    checkoutStatus: null
+    checkoutStatus: null,
   },
-  getters:{
-    availableProducts(state, getters){
-      return state.products.filter(product => product.inventory > 0)
+  getters: {
+    availableProducts(state, getters) {
+      return state.products.filter((product) => product.inventory > 0);
     },
     cartProducts(state) {
-      return state.cart.map(cartItem => {
-        const product = state.products.find(product => product.id == cartItem.id)
-        
+      return state.cart.map((cartItem) => {
+        const product = state.products.find(
+          (product) => product.id == cartItem.id
+        );
+
         return {
           name: product.nameProduct,
           price: product.price,
           quantity: cartItem.quantity,
-          id: product.id
-        }
-      })
+          id: product.id,
+        };
+      });
     },
     cartTotal(state, getters) {
-      return getters.cartProducts.reduce((total, product) => total + product.price * product.quantity, 0)
+      return getters.cartProducts.reduce(
+        (total, product) => total + product.price * product.quantity,
+        0
+      );
     },
-    productIsInStock() {
-      return (product) => {
-        return product.inventory > 0
-      }
-    }
+    productIsInStock(state, getters) {
+      return (productId) => {
+        const product = state.products.find(
+          (product) => product.id == productId
+        );
+        return product.inventory > 0;
+      };
+    },
   },
-  actions:{
-    fetchProducts({commit}){
+  actions: {
+    fetchProducts({ commit }) {
       return new Promise((resolve, reject) => {
-        shop.getProducts(products => {
-          commit('setProducts', products)
-          resolve()
-        })
-      })
+        shop.getProducts((products) => {
+          commit("setProducts", products);
+          resolve();
+        });
+      });
     },
-    addProduct({state, getters, commit}, product){
-      commit('addProduct', product)
+    addProduct({ state, getters, commit }, product) {
+      commit("addProduct", product);
     },
-    addProductToCart({state, getters, commit}, product){
-      commit('pushProductToCart', product)
-      if(getters.productIsInStock(product)){
-        console.log("en stock")
-        const cartItem = state.cart.find(item => item === product)
-        if(!cartItem){
-          console.log("en cart item")
-          commit('pushProductToCart', product)
+    addProductToCart({ state, getters, commit }, productId) {
+      if (getters.productIsInStock(productId)) {
+        const itemInCart = state.cart.find((item) => item.id === productId);
+
+        if (!itemInCart) {
+          commit("pushProductToCart", productId);
         } else {
-          console.log("en else")
-          commit('incrementItemQuantity', cartItem)
+          commit("incrementItemQuantity", itemInCart);
         }
-        commit('decrementProductInventory', cartItem)
+        commit("decrementProductInventory", productId);
       }
     },
-    deleteProductFromCart({state, getters, commit}, product){
-      commit('delProductFromCart', product)
+    deleteProductFromCart({ state, getters, commit }, productId) {
+      commit("delProductFromCart", productId);
     },
-    checkout({state, commit}){
+    checkout({ state, commit }) {
       shop.buyProducts(
         state.cart,
         () => {
-          commit('emptyCart')
-          commit('setCheckoutStatus', 'success')
+          commit("emptyCart");
+          commit("setCheckoutStatus", "success");
         },
         () => {
-          commit('setCheckoutStatus', 'fail')
+          commit("setCheckoutStatus", "fail");
         }
-      )
-    }
+      );
+    },
   },
-  mutations:{
+  mutations: {
     //add new element to products
-    addProduct(state, product){
-      _products.push(product)
-      console.log(_products)
+    addProduct(state, product) {
+      shop.saveProducts([...state.products, product], () => {
+        state.products.push(product);
+      });
     },
-    setProducts(state, products){
-      state.products = products
+    setProducts(state, products) {
+      state.products = products;
     },
-    pushProductToCart(state, productId){
+    pushProductToCart(state, productId) {
       state.cart.push({
         id: productId,
-        quantity: 1
-      })
+        quantity: 1,
+      });
     },
-    delProductFromCart(state, productId){
-      const product =  state.cart.find(product => product.id == productId)
-      return state.cart[product]--
+    delProductFromCart(state, productId) {
+      const cartItem = state.cart.find((product) => product.id == productId);
+      cartItem.quantity--;
+      if (cartItem.quantity == 0) {
+        state.cart = state.cart.filter((product) => product.id != productId);
+      }
+      this.commit("incrementProductInventory", productId);
     },
-    incrementItemQuantity(state, cartItem){
-      cartItem.quantity++
+    incrementItemQuantity(state, cartItem) {
+      cartItem.quantity++;
     },
 
-    decrementProductInventory(state, product){
-      product.inventory--
+    decrementProductInventory(state, productId) {
+      const product = state.products.find((product) => product.id == productId);
+      product.inventory--;
+      shop.saveProducts(state.products)
+    },
+
+    incrementProductInventory(state, productId) {
+      const product = state.products.find((product) => product.id == productId);
+      product.inventory++;
+      shop.saveProducts(state.products)
     },
 
     setCheckoutStatus(state, status) {
-      state.checkStatus = status
+      state.checkStatus = status;
     },
 
     emptyCart(state) {
-      state.cart = []
-    }
-  }
-})
+      state.cart = [];
+    },
+  },
+});
