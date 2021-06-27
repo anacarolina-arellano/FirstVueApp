@@ -16,11 +16,13 @@ export default new Vuex.Store({
     },
     cartProducts(state) {
       return state.cart.map(cartItem => {
-        const product = state.products.find(product => product.id === cartItem.id)
+        const product = state.products.find(product => product.id == cartItem.id)
+        
         return {
-          title: product.title,
+          name: product.nameProduct,
           price: product.price,
-          quantity: cartItem.quantity
+          quantity: cartItem.quantity,
+          id: product.id
         }
       })
     },
@@ -42,16 +44,26 @@ export default new Vuex.Store({
         })
       })
     },
+    addProduct({state, getters, commit}, product){
+      commit('addProduct', product)
+    },
     addProductToCart({state, getters, commit}, product){
+      commit('pushProductToCart', product)
       if(getters.productIsInStock(product)){
-        const cartItem = state.cart.find(item => item.id === product.id)
+        console.log("en stock")
+        const cartItem = state.cart.find(item => item === product)
         if(!cartItem){
-          commit('pushProductToCart', product.id)
+          console.log("en cart item")
+          commit('pushProductToCart', product)
         } else {
+          console.log("en else")
           commit('incrementItemQuantity', cartItem)
         }
-        commit('decrementProductInventory', product)
+        commit('decrementProductInventory', cartItem)
       }
+    },
+    deleteProductFromCart({state, getters, commit}, product){
+      commit('delProductFromCart', product)
     },
     checkout({state, commit}){
       shop.buyProducts(
@@ -64,9 +76,15 @@ export default new Vuex.Store({
           commit('setCheckoutStatus', 'fail')
         }
       )
+    },
+    addProductToForm({state, commit}){
+      commit('addProduct')
     }
   },
   mutations:{
+    addProduct(state, product){
+      state.products.push(product)
+    },
     setProducts(state, products){
       state.products = products
     },
@@ -76,7 +94,10 @@ export default new Vuex.Store({
         quantity: 1
       })
     },
-
+    delProductFromCart(state, productId){
+      const product =  state.cart.find(product => product.id == productId)
+      return state.cart[product]--
+    },
     incrementItemQuantity(state, cartItem){
       cartItem.quantity++
     },

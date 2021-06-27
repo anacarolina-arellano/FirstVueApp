@@ -27,6 +27,7 @@ page
         :category="product.category"
         :description="product.description"
         :imageName="product.imageName"
+        :id="product.id"
       >
       </myCard>
     </v-row>

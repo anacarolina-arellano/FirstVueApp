@@ -20,6 +20,8 @@
 
     import Controller from '@/mixins/controller'
     import roles from '../components/ChooseRole'
+    import { mapState, mapGetters, mapActions } from "vuex";
+
 
     class HomeController extends Controller {
 
@@ -34,6 +36,27 @@
                 //include component
                 roles
             }
+            this.computed = {
+                ...mapGetters({
+                    productIsInStock: "productIsInStock",
+                }),
+                ...mapState({
+                    products: (state) => state.products,
+                }),
+
+                productIsInStock() {
+                    return this.$store.getters.productIsInStock;
+                },
+            };
+            this.methods = {
+                ...mapActions({
+                    fetchProducts: "fetchProducts",
+                }),
+            };            
+        }
+        onCreated() {
+            this.loading = true;
+            this.fetchProducts().then(() => (this.loading = false));
         }
     }
 

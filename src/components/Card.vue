@@ -56,7 +56,7 @@
         color="deep-purple lighten-2"
         class="my-button"
         text
-        @click="addProductToCart(nameProduct)"
+        @click="addProductToCart(id)"
       >
         {{nameProduct}} <br/> ${{price}}
       </v-btn>
@@ -65,6 +65,7 @@
 </template>
 <script>
     import Controller from '@/mixins/controller'
+    import { mapState, mapGetters, mapActions } from "vuex";
     class Card extends Controller {
 
       constructor( name, subComponentList = []) {
@@ -75,9 +76,23 @@
           price: Number,
           category: String,
           description: String,
-          imageName: String
+          imageName: String,
+          id: Number
         }
+        this.methods = {
+          addProductToCart(product) {
+            this.$store.dispatch("addProductToCart", product);
+          },
+        };
+        this.computed= {
+          ...mapGetters({
+            productIsInStock: 'productIsInStock',
+          }),
+        };
       }
+      onCreated() {
+        //console.log(this.props.nameProduct)
+      } 
     }
 
     export default new Card('myCard');

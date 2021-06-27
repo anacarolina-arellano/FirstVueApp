@@ -1,10 +1,12 @@
-###**PG20 T3 JavaScript Frameworks - A2: Routes, Controllers, Directives, Events**
+###**PG20 T3 JavaScript Frameworks - AA3: Running Client App**
 Submitted by: Ana Carolina Arellano
-Date: 07/06/2021
-Version: 2
+Date: 24/06/2021
+Version: 1
 ----------
 ####**Description of what the project does**
-This is the basic app of my Warehouse project. It contains the UI, navigation and the four main roles of the project: the customer, the inventory manager, the shipping picker and the sales. In order to achieve the goals for the app, I made use of Vue directives and event handlers.
+This is the final version of the Warehouse app that I developed during the term. It contains the UI, navigation, the four main roles of the project: the customer, the inventory manager, the shipping picker and the sales and retrieves data from the store. 
+
+In order to achieve the goals of the app, I made use of Vuex's State, Actions, Mutations and Getters. I also created a local file that stored the information about the products in order to simulate the retrieval of data from an api.
 
 ####**Download/Install**
 ---------
@@ -28,8 +30,6 @@ This is the basic app of my Warehouse project. It contains the UI, navigation an
 ## Built With
 * **Vue.js 2.0** - The web framework used.
 * **Vuetify** - The library used for Vue's components.
-* **Axios.js** - Promise based HTTP client used for AJAX.
-* **Php 7** - Back-end server.
 * **CSS Grid** - Used for this application's main styling structure.
 * **CSS Flexbox** - Used as a sub structure and supports this application's styling.
 
