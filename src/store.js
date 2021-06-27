@@ -1,6 +1,7 @@
 import Vuex, { Store } from 'vuex'
 import Vue from 'vue'
 import shop from './api/shop'
+import {_products} from './api/shop'
 
 Vue.use(Vuex)
 
@@ -76,14 +77,13 @@ export default new Vuex.Store({
           commit('setCheckoutStatus', 'fail')
         }
       )
-    },
-    addProductToForm({state, commit}){
-      commit('addProduct')
     }
   },
   mutations:{
+    //add new element to products
     addProduct(state, product){
-      state.products.push(product)
+      _products.push(product)
+      console.log(_products)
     },
     setProducts(state, products){
       state.products = products

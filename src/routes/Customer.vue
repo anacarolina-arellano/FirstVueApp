@@ -60,7 +60,9 @@ class Customer extends Controller {
         productIsInStock: "productIsInStock",
       }),
       ...mapState({
+        
         products: (state) => state.products,
+        
       }),
 
       productIsInStock() {

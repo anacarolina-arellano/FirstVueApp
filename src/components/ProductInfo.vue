@@ -79,7 +79,7 @@
             'description': this.description,
             'imageName': this.imageName,
           }
-          this.$store.products.push(newProduct)
+          this.$store.dispatch("addProduct", newProduct);
           alert("The product has been saved, you can see it in the customers page")
           this.clear()
         }

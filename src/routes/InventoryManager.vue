@@ -14,7 +14,6 @@
 <script>
     import Controller from "@/mixins/controller";
     import productInfo from '../components/ProductInfo'
-    import {mapState, mapGetters, mapActions} from 'vuex'
 
 class InventoryManager extends Controller {
   constructor(name, subComponentList = []) {
