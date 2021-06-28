@@ -1,3 +1,4 @@
+//Copyright (c) 2021. Ana Carolina Arellano Alvarez
 import Vuex, { Store } from "vuex";
 import Vue from "vue";
 import shop from "./api/shop";
@@ -5,12 +6,15 @@ import { _products } from "./api/shop";
 
 Vue.use(Vuex);
 
+
 export default new Vuex.Store({
   state: {
     products: [],
     cart: [],
-    checkoutStatus: null,
+    checkoutStatus: null
   },
+
+  //Getters
   getters: {
     availableProducts(state, getters) {
       return state.products.filter((product) => product.inventory > 0);
@@ -20,7 +24,6 @@ export default new Vuex.Store({
         const product = state.products.find(
           (product) => product.id == cartItem.id
         );
-
         return {
           name: product.nameProduct,
           price: product.price,
@@ -44,6 +47,8 @@ export default new Vuex.Store({
       };
     },
   },
+
+  //actions
   actions: {
     fetchProducts({ commit }) {
       return new Promise((resolve, reject) => {
@@ -84,6 +89,8 @@ export default new Vuex.Store({
       );
     },
   },
+
+  //mutations
   mutations: {
     //add new element to products
     addProduct(state, product) {

@@ -1,4 +1,6 @@
-//Copyright (C) 2021 Ana Carolina Arellano Alvarez //template of the customer
+//Copyright (C) 2021 Ana Carolina Arellano Alvarez 
+
+//template of the customer
 page
 <template>
   <div>
@@ -55,6 +57,7 @@ class Customer extends Controller {
       filterOptions,
     };
 
+    //use of Vuex to get informatiion from the store 
     this.computed = {
       ...mapGetters({
         productIsInStock: "productIsInStock",
@@ -67,15 +70,6 @@ class Customer extends Controller {
 
       productIsInStock() {
         return this.$store.getters.productIsInStock;
-      },
-    };
-    this.methods = {
-      ...mapActions({
-        fetchProducts: "fetchProducts",
-      }),
-
-      addProductToCart(product) {
-        this.$store.dispatch("addProductToCart", product);
       },
     };
   }
