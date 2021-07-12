@@ -3,9 +3,11 @@ import Vuex, { Store } from "vuex";
 import Vue from "vue";
 import shop from "./api/shop";
 import { _products } from "./api/shop";
+import Axios from 'axios'
 
-Vue.use(Vuex);
 
+Vue.use(Vuex, Axios);
+Axios.defaults.baseURL = 'http://localhost:3000'
 
 export default new Vuex.Store({
   state: {
